@@ -1,0 +1,159 @@
+
+Time -> O(N(log(N))
+
+Space -> O(log(N))
+[8,5,2,9,5,6,3]
+main(array)
+  helper(array, 0, array.length - 1)
+return array
+
+helper(array, lp,rp){
+  if(lp >= rp) return array
+  
+  let left = lp + 1
+  let right = rp
+  let pivot = lp
+  
+  while(left <= right){
+      
+      if(array[left] >= array[pivot] && array[right] < array[pivot]){
+        swap(left,right,array)
+      }
+      
+      if(array[left] < array[pivot]){
+        left++
+      }
+      
+      if(array[right] >= array[pivot]){
+        right++
+      }
+  }
+  
+  swap(pivot,right,array)
+  
+  helper(array,lp,right - 1)
+  helper(array,right + 1, rp)
+  return array
+}
+
+
+
+function quickSort(array){
+
+  quickSortHelper(array,0,array.length - 1)
+  return array
+}
+
+function quickSortHelper(array,lp,rp){
+if(lp >= rp) return array
+  let pivot = lp 
+  let left = lp + 1
+  let right = rp
+  
+  while(left <= right){
+      
+      if(array[left] >= array[pivot] && array[right] < array[pivot]){
+        swap(left,right,array)
+      }
+      
+      if(array[left] < array[pivot] ){
+        left++
+      }
+      
+      if(array[right] >= array[pivot]){
+        right--
+      }
+  }
+  
+  swap(pivot, right, array)
+  quickSortHelper(array, lp, right - 1)
+  quickSortHelper(array,right + 1, rp)
+  return array
+}
+
+
+function swap(i,j,array){
+  let temp = array[i]
+  array[i] = array[j]
+  array[j] = temp
+}
+
+
+
+
+
+
+
+function quickSort(array){
+  quickSortHelper(array,0,array.length - 1)
+  return array
+}
+
+
+function quickSortHelper(array,lp,rp){
+  if(lp>= rp) return array
+  let pivot = lp
+  let left = lp + 1
+  let right = rp
+  
+  while(left <= right){
+      
+      if(array[left] > array[pivot] && array[right] <= array[pivot]){
+        swap(left,right,array)
+      }
+      
+      if(array[left] <= array[pivot]){
+        left++
+      }
+      
+      if(array[right] > array[pivot]){
+        right--
+      }
+  }
+  swap(pivot,right,array)
+  quickSortHelper(array, lp,right - 1)
+  quickSortHelper(array,right + 1,rp)
+  return array
+}
+
+
+function swap(i,j,array){
+  let temp = array[i]
+  array[i] = array[j]
+  array[j] = temp
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
